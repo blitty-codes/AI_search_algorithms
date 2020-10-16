@@ -8,6 +8,15 @@ class Connections:
     def new_connection(self, source, target, weight: float):
         self.conn.append((source, target, weight))
 
+    def successors(self, node_name):
+        succ = []
+        all_conn = self.get_connections()
+        for i in all_conn:
+            if str(i[0]) == node_name:
+                succ.append((i[1], i[2]))
+
+        return succ
+
     def is_connection(self, src, target):
         try:
             self.get_src_tar().index((src, target))
