@@ -28,6 +28,7 @@ A graph is formed with:
 # Todo
 - [x] Insert input graph
 - [x] Convert into Objects
+- [x] Random choice
 - [ ] Deep search algorithm
 - [ ] Range search algorithm
 - [ ] Branch & Bound algorithm
