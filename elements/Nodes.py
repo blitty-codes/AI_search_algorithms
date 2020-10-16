@@ -13,6 +13,7 @@ class Nodes:
         if is_end and not self.has_end:
             self.set_has_end()
             self.end_node = node
+            print('Added end node!')
 
     def new_end(self, new_end: Node):
         i = j = 0
