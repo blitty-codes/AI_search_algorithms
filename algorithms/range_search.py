@@ -13,11 +13,17 @@ def expansion(current_path, successors):
     return new
 
 
-# deep search algorithm gives you the first path that is find
+# range search algorithm gives you the first path that is find but
+# the difference between deep one is that searches on a range form,
+# as it's name is, to be more concrete, this one explores all the
+# possibilities after going to (think of a tree) the next level
+# https://miro.medium.com/max/2496/1*9BDPv_CI_7vJMGquYTQoOQ.png
+
 def range_search(start, end, conn: Connections):
     # new_path is a List where all the paths will be stored
     paths = [[(start, 0)]]
     total_weight = 0
+    # same as deep_range explanation
     # continue while we have no path and the current last node from path is not end
     # paths[0][0][0] reference to [[()]] the first one is to choose the first path
     # the second one refers to the last node in the list, and the third refers to
@@ -28,7 +34,7 @@ def range_search(start, end, conn: Connections):
         x = conn.successors(paths[0][0][0])
         print(f'successors of {paths[0][0][0]}: f{x}')
         exp = expansion(paths[0], x)
-        paths = paths[1:] + exp
+        paths = paths[1:] + exp # difference with deep_search
 
     if paths:
         for i in paths[0]:
