@@ -49,10 +49,10 @@ if __name__ == '__main__':
         if n_conn >= n_nodes:
             print('Generating all connections... (if have wait an amount of time, please restart)')
             print(n_conn)
-            j = 0
-            for i in range(n_conn):
+            i = j = 0
+            for i in range(n_nodes):
                 j = i + 1
-                while j < n_conn:
+                while j < n_nodes:
                     conn.new_connection(nodes.get_node_names()[i],
                                         nodes.get_node_names()[j],
                                         round(random.uniform(0, 3), 2))
@@ -60,6 +60,7 @@ if __name__ == '__main__':
                                         nodes.get_node_names()[i],
                                         round(random.uniform(0, 3), 2))
                     j += 1
+
         else:
             print('Creating a random graph... (if have wait an amount of time, please restart)')
             # first element
