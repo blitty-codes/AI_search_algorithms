@@ -24,8 +24,10 @@ def deep_search(start, end, conn: Connections):
     # the node name, because de [1] ([0][0][1]) means that we are getting the weight
     # from the last node to this one
     while paths != [] and paths[0][0][0] != end:
-        # print(paths)
-        exp = expansion(paths[0], conn.successors(start[0]))
+        print('paths:', paths)
+        x = conn.successors(paths[0][0][0])
+        print(f'successors of {paths[0][0][0]}: f{x}')
+        exp = expansion(paths[0], x)
         paths = exp + paths[1:]
 
     if paths:
