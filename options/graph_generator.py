@@ -67,7 +67,7 @@ def graph_generator(numb, n_nodes, n_conn, nodes, conn):
         # get nodes and heuristic
         for i in range(n_nodes):
             sources, heuristics = input(f'Node: {i} - (Node Heuristic): ').split()
-            nodes.new_node(Node.Node(sources, heuristics), (lambda x: int(x) == 0)(float(heuristics)))
+            nodes.new_node(Node.Node(sources, heuristics), (lambda x: x == float(0))(float(heuristics)))
         print('Node names:', nodes.get_node_names())
 
         # connection between nodes
