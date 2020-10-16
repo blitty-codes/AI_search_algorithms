@@ -2,11 +2,15 @@
 With this program you can create a random graph or
 use one of your interest.
 
-You can test search algorithms in a graph, and see if
-there is a solution, from a node A to another B, and
-if the algorithm is informative then we will need a
-graph with heuristics and costs. If not, you just
-do not need any heuristics and costs.
+You can **test search algorithms** in a **graph**, and see if
+there is a **solution**, _from a node A to another B_,
+if the algorithm is **informative** then we will need a
+graph with **heuristics** and **costs**. If not, you just
+need **costs**.
+
+If you choose the **random graph**, it will have _**no reflexive**_
+nodes, also the **last node** is the **objective** to be searched,
+if you want to **change** this objective, **it will be asked**.
 
 A graph is formed with:
   - sources [] -> nodes where the arrow starts
@@ -29,7 +33,7 @@ A graph is formed with:
 - [x] Insert input graph
 - [x] Convert into Objects
 - [x] Random choice
-- [ ] Deep search algorithm
+- [x] Deep search algorithm
 - [ ] Range search algorithm
 - [ ] Branch & Bound algorithm
 - [ ] Climb algorithm
@@ -39,6 +43,8 @@ A graph is formed with:
 - [ ] Read from a file the graph
 
 # Biography:
+  - UPM search algorithms from 1st unit AI
   - http://micaminomaster.com.co/grafo-algoritmo/libreria-grafos-dinamicos/
+  - https://es.wikipedia.org/wiki/Grado_(teor%C3%ADa_de_grafos) (Lema apreton de manos)
 
-**Update: blitty-codes 15-Oct-2020**
+**Update: blitty-codes 16-Oct-2020**
