@@ -34,7 +34,7 @@ A graph is formed with:
 - [x] Convert into Objects
 - [x] Random choice
 - [x] Deep search algorithm
-- [ ] Range search algorithm
+- [x] Range search algorithm
 - [ ] Branch & Bound algorithm
 - [ ] Climb algorithm
 - [ ] First better algorithm
