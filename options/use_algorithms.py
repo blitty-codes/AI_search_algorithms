@@ -2,6 +2,7 @@ import elements.Connections as Connects
 import elements.Nodes as Nodes
 from algorithms.deep_search import deep_search
 from algorithms.range_search import range_search
+from algorithms.hill_climbing import hill_climbing
 
 
 def use_algorithms(opt_al, cons: Connects, nodes: Nodes):
@@ -21,8 +22,11 @@ def use_algorithms(opt_al, cons: Connects, nodes: Nodes):
         al = deep_search(start, end, cons)
     elif opt_al == 2:
         al = range_search(start, end, cons)
+    elif opt_al == 3:
+        al = hill_climbing(start, end, cons, nodes.get_nodes())
 
-    print('al: ', al)
+    print('al:', al)
+    print('end:', end)
 
     if al is not None:
         node_path = []
@@ -31,6 +35,9 @@ def use_algorithms(opt_al, cons: Connects, nodes: Nodes):
 
         print(f'Path from {start} to {end}: {str(node_path)}')
         print(f'it\'s wight is: {al[1]}')
+
+        if len(al) == 3:
+            print(f'it\'s total heuristic is: {al[2]}')
 
     else:
         print('No path found!')

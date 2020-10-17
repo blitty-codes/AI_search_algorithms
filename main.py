@@ -36,13 +36,15 @@ if __name__ == '__main__':
 
     graph_generator(numb, n_nodes, n_conn, nodes, conn)
 
-    print(nodes.get_nodes())
-    print(conn.get_connections())
+    print('(Node, Heuristic):', nodes.get_nodes())
+    print('(Source, Target, Weight):', conn.get_connections())
+    print()
 
-    print('####### Algorithm #######')
-    print('#     1. deep_search    #')
-    print('#                       #')
-    print('#########################')
+    print('######## Algorithm ########')
+    print('#     1. deep_search      #')
+    print('#     2. range_search     #')
+    print('#     3. hill_climbing    #')
+    print('###########################')
 
     opt_al = input('Algorithm to test: ')
 
