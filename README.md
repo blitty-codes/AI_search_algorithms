@@ -1,3 +1,10 @@
+# Index
+1. [Information](#information)
+2. [Type of Algorithms](#types-of-algorithms)
+3. [Todo](#todo)
+4. [Utility](#utility)
+5. [Biography](#biography)
+
 # Information
 With this program you can create a random graph or
 use one of your interest.
@@ -12,6 +19,18 @@ If you choose the **random graph**, it will have _**no reflexive**_
 nodes, also the **last node** is the **objective** to be searched,
 if you want to **change** this objective, **it will be asked**.
 
+# Notes
+Be careful with **cyclic graphs**, some algorithms will be on a **loop**. Ex._
+```
+Nodes: [('4', 0), ('1', 1.81), ('2', 1.35), ('3', 0.95)]
+
+Relations: [('4', '1', 2.73), ('1', '2', 1.68), ('2', '3', 0.37), ('3', '1', 0.67), ('3', '2', 2.65)]
+
+When the **end** node is 4, and we **start** in node 1 we may get a loop like
+this 1 -> 2 -> 3 -> 2 -> 3 -> .... and so on, this case happens in **hill climbing**
+algorithm, because it takes the minimum heuristic, which the next to 3 is 2 and next
+to 2 is 3, so we get a cyclic and infinite loop.
+```
 A graph is formed with:
   - sources [] -> nodes where the arrow starts
   - targets [] -> nodes which the arrow points
@@ -21,7 +40,7 @@ A graph is formed with:
 
 `If there is no heuristic applied then it is a non informed algorithm`
 
-#### Types of algorithms:
+# Types of algorithms
 
 | Non-informative | Informative |
 |---|---|
@@ -35,16 +54,29 @@ A graph is formed with:
 - [x] Random choice
 - [x] Deep search algorithm
 - [x] Range search algorithm
+- [x] Climb algorithm
 - [ ] Branch & Bound algorithm
-- [ ] Climb algorithm
 - [ ] First better algorithm
 - [ ] A*
 - [ ] Draw graph
 - [ ] Read from a file the graph
 
+# Solved problems
+- When on algorithms like deep_search, range_search, hill_climbing, the end was
+change, the element end goes to a **str** type, on the other case, we get an **int**,
+since the name can be anything, the end is going to be send as **string**
+
+# Utility
+- Heuristic
+    - https://en.wikipedia.org/wiki/Heuristic
+- Hill Climbing
+    - https://en.wikipedia.org/wiki/Hill_climbing
+    - https://www.geeksforgeeks.org/introduction-hill-climbing-artificial-intelligence/
+
 # Biography:
   - UPM search algorithms from 1st unit AI
   - http://micaminomaster.com.co/grafo-algoritmo/libreria-grafos-dinamicos/
   - https://es.wikipedia.org/wiki/Grado_(teor%C3%ADa_de_grafos) (Lema apreton de manos)
+  - https://www.geeksforgeeks.org/python-program-to-sort-a-list-of-tuples-by-second-item/
 
-**Update: blitty-codes 16-Oct-2020**
+**Update: blitty-codes 17-Oct-2020**
