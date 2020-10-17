@@ -3,7 +3,7 @@ import elements.Nodes as Nodes
 from algorithms.deep_search import deep_search
 from algorithms.range_search import range_search
 from algorithms.hill_climbing import hill_climbing
-
+from algorithms.branch_bound import branch_bound
 
 def use_algorithms(opt_al, cons: Connects, nodes: Nodes):
     global al
@@ -24,6 +24,8 @@ def use_algorithms(opt_al, cons: Connects, nodes: Nodes):
         al = range_search(start, end, cons)
     elif opt_al == 3:
         al = hill_climbing(start, end, cons, nodes.get_nodes())
+    elif opt_al == 4:
+        al = branch_bound(start, end, cons)
 
     print('al:', al)
     print('end:', end)
