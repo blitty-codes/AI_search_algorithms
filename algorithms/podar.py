@@ -11,7 +11,7 @@ def podar(paths):
 
     if paths:
         for i in paths[0]:
-            count += i[1]
+            count += float(i[1])
 
         # (path, total weight of the path, index)
         end_less_weight = [paths[0], count, 0]
@@ -45,10 +45,17 @@ def podar(paths):
         i = 0
         new_paths = []
         while i < len(p):
+            # print('p[total_weights[i][0]][1][0]:', p[total_weights[i][0]][1][0],
+            #      'end_less_weight[0][1][0]:', end_less_weight[0][1][0],
+            #      'total_weights[i][1]:', total_weights[i][1],
+            #      'end_less_weight[1]:', end_less_weight[1])
+            # if the end node from the actual path != the end node
             if p[i][0][0] != paths[0][0][0]:
                 new_paths.append(p[i])
-            elif p[total_weights[i][0]][1][0] == end_less_weight[0][1][0]: # this case is when we found the same
-                # first path, so we just append it
+            # this case is when we found the same first path, so we just append it
+            # same previous end node and same total weight, then we can say that they are the same path
+            # so we just append one of them
+            elif p[total_weights[i][0]][1][0] == end_less_weight[0][1][0] and total_weights[i][1] == end_less_weight[1]:
                 new_paths.append(p[total_weights[i][0]])
             else:  # we found same end node
                 # since we have the total_weights and p in the same order
