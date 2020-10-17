@@ -1,6 +1,6 @@
 class Node:
     def __init__(self, name, heuristic, is_end=False):
-        self.name = name
+        self.name = str(name)
         self.heuristic = heuristic
         self.is_end = is_end
 
