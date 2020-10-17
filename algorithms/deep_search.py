@@ -6,8 +6,9 @@ import elements.Connections as Connections
 
 def expansion(current_path, successors):
     new = []
+    print('successors:', successors)
     for i in successors:
-        if i not in current_path:
+        if i[0] not in current_path[0]:
             new.append([i] + current_path)
 
     return new
@@ -25,9 +26,7 @@ def deep_search(start, end, conn: Connections):
     # from the last node to this one
     while paths != [] and paths[0][0][0] != end:
         print('paths:', paths)
-        x = conn.successors(paths[0][0][0])
-        print(f'successors of {paths[0][0][0]}: f{x}')
-        exp = expansion(paths[0], x)
+        exp = expansion(paths[0], conn.successors(paths[0][0][0]))
         paths = exp + paths[1:]
 
     if paths:
