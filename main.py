@@ -44,9 +44,9 @@ if __name__ == '__main__':
     print('#     1. deep_search      #')
     print('#     2. range_search     #')
     print('#     3. hill_climbing    #')
+    print('#     4. branch & bound   #')
     print('###########################')
 
     opt_al = input('Algorithm to test: ')
 
     use_algorithms(opt_al, conn, nodes)
-
