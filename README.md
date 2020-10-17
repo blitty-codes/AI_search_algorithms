@@ -1,9 +1,10 @@
 # Index
 1. [Information](#information)
-2. [Type of Algorithms](#types-of-algorithms)
-3. [Todo](#todo)
-4. [Utility](#utility)
-5. [Biography](#biography)
+2. [Notes](#notes)
+3. [Type of Algorithms](#types-of-algorithms)
+4. [Todo](#todo)
+5. [Utility](#utility)
+6. [Biography](#biography)
 
 # Information
 With this program you can create a random graph or
@@ -22,11 +23,14 @@ if you want to **change** this objective, **it will be asked**.
 # Notes
 Be careful with **cyclic graphs**, some algorithms will be on a **loop**. Ex._
 ```
+This happens in the hill climbing algorithm because we do not save the nodes
+that have already been visited.
+
 Nodes: [('4', 0), ('1', 1.81), ('2', 1.35), ('3', 0.95)]
 
 Relations: [('4', '1', 2.73), ('1', '2', 1.68), ('2', '3', 0.37), ('3', '1', 0.67), ('3', '2', 2.65)]
 
-When the **end** node is 4, and we **start** in node 1 we may get a loop like
+When the end node is 4, and we start in node 1 we may get a loop like
 this 1 -> 2 -> 3 -> 2 -> 3 -> .... and so on, this case happens in **hill climbing**
 algorithm, because it takes the minimum heuristic, which the next to 3 is 2 and next
 to 2 is 3, so we get a cyclic and infinite loop.
@@ -55,7 +59,7 @@ A graph is formed with:
 - [x] Deep search algorithm
 - [x] Range search algorithm
 - [x] Climb algorithm
-- [ ] Branch & Bound algorithm
+- [x] Branch & Bound algorithm
 - [ ] First better algorithm
 - [ ] A*
 - [ ] Draw graph
