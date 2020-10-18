@@ -3,6 +3,7 @@
 # conn: all the connections
 import elements.Connections as Connections
 import elements.Nodes as Nodes
+from algorithms.expansion import expansion
 
 
 def get_node_heuristic(node_name, nodes: Nodes):
@@ -11,7 +12,8 @@ def get_node_heuristic(node_name, nodes: Nodes):
             return i[1]
 
 
-def expansion(current_path, successors, nodes: Nodes):
+def expansion_heuristic(current_path, successors, nodes: Nodes):
+    '''
     new = []
     print('successors:', successors)
     # successors: [node_name, weight]
@@ -20,6 +22,20 @@ def expansion(current_path, successors, nodes: Nodes):
         if i[0] not in current_path[0]:
             heuristic = get_node_heuristic(i[0], nodes)
             new.append([(i[0], heuristic, i[1])] + current_path)
+    '''
+    new = []
+    successors_names = [i[0] for i in successors]
+    current_path_names = [i[0] for i in current_path]
+
+    print('successors:', successors)
+
+    # search if in successors we have a node that has been
+    # already visited on the current_path, so we search
+    # by the names of the nodes
+    for i in range(len(successors_names)):
+        if successors_names[i] not in current_path_names:
+            heuristic = get_node_heuristic(successors_names[i], nodes)
+            new.append([(successors[i][0], heuristic, successors[i][1])] + current_path)
 
     if new:
         new_path = []
@@ -52,14 +68,14 @@ def expansion(current_path, successors, nodes: Nodes):
 
 # more info found in README.md on utility
 def hill_climbing(start, end, conn: Connections, nodes: Nodes):
-    # new_path is a list where all the paths will be stored type of the node: (node_name, heuristic, weight)
+    # new_path is a list where all the paths will be stored type of the node: (node_name, heuristic)
     paths = [[(start, 0, 0)]]
     total_weight = 0
     total_heuristic = 0
 
     while paths != [] and paths[0][0][0] != end:
         print('paths:', paths)
-        exp = expansion(paths[0], conn.successors(paths[0][0][0]), nodes)
+        exp = expansion_heuristic(paths[0], conn.successors(paths[0][0][0]), nodes)
         paths = exp + paths[1:]
 
     if paths:

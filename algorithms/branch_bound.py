@@ -3,16 +3,7 @@
 # conn: all the connections
 import elements.Connections as Connections
 from algorithms.podar import podar
-
-
-def expansion(current_path, successors):
-    new = []
-    print('successors:', successors)
-    for i in successors:
-        if i[0] not in current_path[0]:
-            new.append([i] + current_path)
-
-    return new
+from algorithms.expansion import expansion
 
 
 def branch_bound(start, end, conn: Connections):

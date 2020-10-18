@@ -2,16 +2,7 @@
 # end: node name
 # conn: all the connections
 import elements.Connections as Connections
-
-
-def expansion(current_path, successors):
-    new = []
-    print('successors:', successors)
-    for i in successors:
-        if i[0] not in current_path[0]:
-            new.append([i] + current_path)
-
-    return new
+from algorithms.expansion import expansion
 
 
 # range search algorithm gives you the first path that is find but
@@ -33,7 +24,7 @@ def range_search(start, end, conn: Connections):
     while paths != [] and paths[0][0][0] != end:
         print('paths:', paths)
         exp = expansion(paths[0], conn.successors(paths[0][0][0]))
-        paths = paths[1:] + exp # difference with deep_search
+        paths = paths[1:] + exp  # difference with deep_search
 
     if paths:
         for i in paths[0]:

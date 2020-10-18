@@ -2,16 +2,7 @@
 # end: node name
 # conn: all the connections
 import elements.Connections as Connections
-
-
-def expansion(current_path, successors):
-    new = []
-    print('successors:', successors)
-    for i in successors:
-        if i[0] not in current_path[0]:
-            new.append([i] + current_path)
-
-    return new
+from algorithms.expansion import expansion
 
 
 # deep search algorithm gives you the first path that is find
