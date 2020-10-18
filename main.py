@@ -40,12 +40,13 @@ if __name__ == '__main__':
     print('(Source, Target, Weight):', conn.get_connections())
     print()
 
-    print('######## Algorithm ########')
-    print('#     1. deep_search      #')
-    print('#     2. range_search     #')
-    print('#     3. hill_climbing    #')
-    print('#     4. branch & bound   #')
-    print('###########################')
+    print('######### Algorithm #########')
+    print('#    1. deep_search         #')
+    print('#    2. range_search        #')
+    print('#    3. hill_climbing       #')
+    print('#    4. branch & bound      #')
+    print('#    5. first the better    #')
+    print('#############################')
 
     opt_al = input('Algorithm to test: ')
 

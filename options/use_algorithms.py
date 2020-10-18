@@ -4,6 +4,7 @@ from algorithms.deep_search import deep_search
 from algorithms.range_search import range_search
 from algorithms.hill_climbing import hill_climbing
 from algorithms.branch_bound import branch_bound
+from algorithms.first_better import first_better
 
 def use_algorithms(opt_al, cons: Connects, nodes: Nodes):
     global al
@@ -26,6 +27,9 @@ def use_algorithms(opt_al, cons: Connects, nodes: Nodes):
         al = hill_climbing(start, end, cons, nodes.get_nodes())
     elif opt_al == 4:
         al = branch_bound(start, end, cons)
+    elif opt_al == 5:
+        al = first_better(start, end, cons, nodes.get_nodes())
+        print('[(node name, heuristic, weight), ...]')
 
     print('al:', al)
     print('end:', end)

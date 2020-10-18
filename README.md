@@ -35,7 +35,9 @@ this 1 -> 2 -> 3 -> 2 -> 3 -> .... and so on, this case happens in **hill climbi
 algorithm, because it takes the minimum heuristic, which the next to 3 is 2 and next
 to 2 is 3, so we get a cyclic and infinite loop.
 ```
-A graph is formed with:
+**This is solve removing the nodes which has been already visited in the current path.**
+
+### A graph is formed with:
   - sources [] -> nodes where the arrow starts
   - targets [] -> nodes which the arrow points
   - heuristics [] -> the heuristic of a graph
@@ -60,7 +62,7 @@ A graph is formed with:
 - [x] Range search algorithm
 - [x] Climb algorithm
 - [x] Branch & Bound algorithm
-- [ ] First better algorithm
+- [x] First better algorithm
 - [ ] A*
 - [ ] Draw graph
 - [ ] Read from a file the graph
@@ -83,4 +85,4 @@ since the name can be anything, the end is going to be send as **string**
   - https://es.wikipedia.org/wiki/Grado_(teor%C3%ADa_de_grafos) (Lema apreton de manos)
   - https://www.geeksforgeeks.org/python-program-to-sort-a-list-of-tuples-by-second-item/
 
-**Update: blitty-codes 17-Oct-2020**
+**Update: blitty-codes 18-Oct-2020**
