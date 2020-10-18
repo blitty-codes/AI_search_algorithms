@@ -3,26 +3,15 @@
 # conn: all the connections
 import elements.Connections as Connections
 import elements.Nodes as Nodes
-from algorithms.expansion import expansion
 
 
 def get_node_heuristic(node_name, nodes: Nodes):
     for i in nodes:
-        if i[0] is node_name:
+        if str(i[0]) == str(node_name):
             return i[1]
 
 
 def expansion_heuristic(current_path, successors, nodes: Nodes):
-    '''
-    new = []
-    print('successors:', successors)
-    # successors: [node_name, weight]
-    for i in successors:
-        # print('i:', i)
-        if i[0] not in current_path[0]:
-            heuristic = get_node_heuristic(i[0], nodes)
-            new.append([(i[0], heuristic, i[1])] + current_path)
-    '''
     new = []
     successors_names = [i[0] for i in successors]
     current_path_names = [i[0] for i in current_path]
@@ -68,8 +57,8 @@ def expansion_heuristic(current_path, successors, nodes: Nodes):
 
 # more info found in README.md on utility
 def hill_climbing(start, end, conn: Connections, nodes: Nodes):
-    # new_path is a list where all the paths will be stored type of the node: (node_name, heuristic)
-    paths = [[(start, 0, 0)]]
+    # new_path is a list where all the paths will be stored type of the node: (node_name, heuristic, weight)
+    paths = [[(start, get_node_heuristic(start, nodes), 0)]]
     total_weight = 0
     total_heuristic = 0
 
