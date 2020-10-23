@@ -65,7 +65,7 @@ def use_algorithms(cons: Connects, nodes: Nodes):
         if op == 1:
             conn_sol = []
             for i in range(len(al[0])-1):
-                conn_sol.append((al[0][i+1][0], al[0][i][0], al[0][i+1][2]))
+                conn_sol.append((al[0][i][0], al[0][i+1][0], al[0][i+1][2]))
 
             p = Process(target=plot_graph, args=(conn_sol, 1), daemon=False)
             p.start()
