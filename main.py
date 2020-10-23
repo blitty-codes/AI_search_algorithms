@@ -43,7 +43,10 @@ if __name__ == '__main__':
     print('(Source, Target, Weight):', conn.get_connections())
     print()
 
-    p = Process(target=plot_graph, args=(conn.conn,), daemon=False)
+    opt = input('Print graph with weights? (0 false, 1 true): ')
+    opt = int(opt) if opt != '' else 0
+
+    p = Process(target=plot_graph, args=(conn.conn, opt,), daemon=False)
     p.start()
 
     print('######### Algorithm #########')
@@ -55,6 +58,4 @@ if __name__ == '__main__':
     print('#    6. A*                  #')
     print('#############################')
 
-    opt_al = input('Algorithm to test: ')
-
-    use_algorithms(opt_al, conn, nodes)
+    use_algorithms(conn, nodes)
