@@ -11,12 +11,13 @@ def deep_search(start, end, conn: Connections):
     paths = [[(start, 0)]]
     total_weight = 0
     # continue while we have no path and the current last node from path is not end
+
     # paths[0][0][0] reference to [[()]] the first one is to choose the first path
     # the second one refers to the last node in the list, and the third refers to
     # the node name, because de [1] ([0][0][1]) means that we are getting the weight
     # from the last node to this one
     while paths != [] and paths[0][0][0] != end:
-        print('paths:', paths)
+        # print('paths:', paths)
         exp = expansion(paths[0], conn.successors(paths[0][0][0]))
         paths = exp + paths[1:]
 

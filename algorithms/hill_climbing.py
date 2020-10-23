@@ -45,7 +45,7 @@ def expansion_heuristic(current_path, successors, nodes: Nodes):
 
 
 # hill_climbing is an algorithm that uses heuristics and
-# takes the path which less heuristic node has. For example:
+# takes the path which has the less heuristic node. For example:
 #   Node, heuristic: (1,0.3) (2, 1) (3, 0.2)
 #       1 -> 2 (heuristic of 2 is 1)
 #       1 -> 3 (heuristic of 3 is 0.2)

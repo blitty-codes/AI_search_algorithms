@@ -13,12 +13,12 @@ def branch_bound(start, end, conn: Connections):
 
     while paths != [] and paths[0][0][0] != end:
         exp = expansion(paths[0], conn.successors(paths[0][0][0]))
-        paths = paths[1:] + exp  # difference with deep_search
-        print('paths:', paths)
-        # we do not want to give the first path because you want to 'pode'
+        paths = paths[1:] + exp
+        # print('paths:', paths)
+        # we do not want to give the first path because you want to 'podar'
         # from the last node of the actual path
         paths = podar(paths)
-        print('paths_after:', paths)
+        # print('paths_after:', paths)
 
     if paths:
         for i in paths[0]:

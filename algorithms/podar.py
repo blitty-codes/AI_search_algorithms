@@ -1,6 +1,5 @@
-# when we 'podamos' what we are doing is sorting the paths where we get
-# the same last node, once we have done this, we just keep the one with the
-# smallest cost.
+# when we 'podamos' what we are doing is deleting the paths has
+# the same last node and keep with the one with lowest cost
 def podar(paths):
     # print('ppp', paths, 'end_name_node:', end_node)
 
@@ -15,7 +14,7 @@ def podar(paths):
 
         # (path, total weight of the path, index)
         end_less_weight = [paths[0], count, 0]
-        print('end_less_weight:', end_less_weight)
+        # print('end_less_weight:', end_less_weight)
 
         # get total path weight
         count = 0
@@ -28,18 +27,18 @@ def podar(paths):
 
         # sort by total path weight
         total_weights.sort(key=lambda x: x[1])
-        print('sorted total_weights:', total_weights)
+        # print('sorted total_weights:', total_weights)
 
         count = 0
         # new list with the paths sorted by their total weights
         for i in total_weights:
-            # set the new position to get track of it
+            # set new position to get track of it
             if i[0] == end_less_weight[2]:
                 end_less_weight[2] = count
             p.append(paths[i[0]])
             count += 1
 
-        print('SORTED PATH:', p)
+        # print('SORTED PATH:', p)
 
         # here we make the 'podar' mode
         i = 0
@@ -68,5 +67,5 @@ def podar(paths):
 
             i += 1
 
-        print('NEW PATHS:', new_paths)
+        # print('NEW PATHS:', new_paths)
     return new_paths

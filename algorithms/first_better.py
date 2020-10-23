@@ -16,12 +16,12 @@ def sort_by_heuristic(paths):
     if paths:
         # [position, heuristic]
         heuristic = [(i, float(paths[i][0][1])) for i in range(len(paths))]
-        print('(position, heuristic)', heuristic)
+        # print('(position, heuristic)', heuristic)
         heuristic.sort(key=lambda x: x[1])
         # sort by heuristic sort
         for i in range(len(heuristic)):
             sort_paths.append(paths[heuristic[i][0]])
-        print('new_path:', sort_paths)
+        # print('new_path:', sort_paths)
 
     return sort_paths
 
@@ -31,11 +31,8 @@ def expansion_heuristic(current_path, successors, nodes: Nodes):
     successors_names = [i[0] for i in successors]
     current_path_names = [i[0] for i in current_path]
 
-    print('successors:', successors)
+    # print('successors:', successors)
 
-    # search if in successors we have a node that has been
-    # already visited on the current_path, so we search
-    # by the names of the nodes
     for i in range(len(successors_names)):
         if successors_names[i] not in current_path_names:
             heuristic = get_node_heuristic(successors_names[i], nodes)
@@ -54,7 +51,7 @@ def first_better(start, end, conn: Connections, nodes: Nodes):
     total_heuristic = 0
 
     while paths != [] and paths[0][0][0] != end:
-        print('paths:', paths)
+        # print('paths:', paths)
         exp = expansion_heuristic(paths[0], conn.successors(paths[0][0][0]), nodes)
         paths = paths[1:] + exp
         paths = sort_by_heuristic(paths)
