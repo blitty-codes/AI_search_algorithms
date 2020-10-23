@@ -11,8 +11,11 @@ from algorithms.first_better import first_better
 from algorithms.A_start import A_star
 from algorithms.plot_graph import plot_graph
 
-def use_algorithms(opt_al, cons: Connects, nodes: Nodes):
+
+def use_algorithms(cons: Connects, nodes: Nodes):
     global al
+    opt_al = input('Algorithm to test: ')
+
     print(f'The end node is: {nodes.get_end_node().get_name()}. Do you want it?'
           if nodes.get_has_end() else 'No end node applied, please give a new end node')
     end = input('(if there is no end node or you want another): ')
@@ -57,16 +60,14 @@ def use_algorithms(opt_al, cons: Connects, nodes: Nodes):
         if len(al) == 3:
             print(f'it\'s total heuristic is: {al[2]}')
 
-        op = int(input('Plot solution graph? (0-no, 1-yes): '))
+        op = input('Plot solution graph? (0 false, 1 true): ')
+        op = int(op) if op != '' else 1
         if op == 1:
-            i = 0
             conn_sol = []
-            while (i + 1) < len(al[0]):
-                conn_sol.append((al[0][i][0], al[0][i+1][0], al[0][i][2]))
-                i += 1
+            for i in range(len(al[0])-1):
+                conn_sol.append((al[0][i+1][0], al[0][i][0], al[0][i+1][2]))
 
-            # print(conn_sol)
-            p = Process(target=plot_graph, args=(conn_sol,), daemon=False)
+            p = Process(target=plot_graph, args=(conn_sol, 1), daemon=False)
             p.start()
 
     else:
