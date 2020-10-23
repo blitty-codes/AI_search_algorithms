@@ -3,12 +3,7 @@
 # conn: all the connections
 import elements.Connections as Connections
 import elements.Nodes as Nodes
-
-
-def get_node_heuristic(node_name, nodes: Nodes):
-    for i in nodes:
-        if str(i[0]) == str(node_name):
-            return i[1]
+from algorithms.get_node_heuristic import get_node_heuristic
 
 
 def sort_by_heuristic(paths):
