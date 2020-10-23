@@ -63,9 +63,10 @@ to 2 is 3, so we get a cyclic and infinite loop.
 - [x] Climb algorithm
 - [x] Branch & Bound algorithm
 - [x] First better algorithm
-- [ ] A*
-- [ ] Draw graph
+- [x] A*
+- [x] Draw graph
 - [ ] Read from a file the graph
+- [ ] Save a graph into a file
 
 # Solved problems
 - When on algorithms like deep_search, range_search, hill_climbing, the end was
