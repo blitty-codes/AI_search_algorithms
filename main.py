@@ -1,11 +1,14 @@
 # this graph is use for visualizing graph
-# from graph.Graph import Graph
+from multiprocessing import Process
 
 import elements.Connections as Connections
 import elements.Nodes as Nodes
 
+from algorithms.plot_graph import plot_graph
+
 from options.use_algorithms import use_algorithms
 from options.graph_generator import graph_generator
+
 
 if __name__ == '__main__':
     print('Steps:')
@@ -28,8 +31,8 @@ if __name__ == '__main__':
     # without the reflexive connections, so we have that for a graph of nodes N
     # we got the connections from the graph N-1 (the new connections to be generated) * N
     # (the number of nodes)
-    if not n_conn < n_nodes*(n_nodes-1):
-        n_conn = n_nodes*(n_nodes-1)
+    if not n_conn < n_nodes * (n_nodes - 1):
+        n_conn = n_nodes * (n_nodes - 1)
 
     nodes = Nodes.Nodes(n_nodes)
     conn = Connections.Connections(n_conn)
@@ -40,12 +43,16 @@ if __name__ == '__main__':
     print('(Source, Target, Weight):', conn.get_connections())
     print()
 
+    p = Process(target=plot_graph, args=(conn.conn,), daemon=False)
+    p.start()
+
     print('######### Algorithm #########')
     print('#    1. deep_search         #')
     print('#    2. range_search        #')
     print('#    3. hill_climbing       #')
-    print('#    4. branch & bound      #')
-    print('#    5. first the better    #')
+    print('#    4. first the better    #')
+    print('#    5. branch & bound      #')
+    print('#    6. A*                  #')
     print('#############################')
 
     opt_al = input('Algorithm to test: ')

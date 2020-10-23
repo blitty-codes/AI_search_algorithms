@@ -1,10 +1,15 @@
+from multiprocessing import Process
+
 import elements.Connections as Connects
 import elements.Nodes as Nodes
+
 from algorithms.deep_search import deep_search
 from algorithms.range_search import range_search
 from algorithms.hill_climbing import hill_climbing
 from algorithms.branch_bound import branch_bound
 from algorithms.first_better import first_better
+from algorithms.A_start import A_star
+from algorithms.plot_graph import plot_graph
 
 def use_algorithms(opt_al, cons: Connects, nodes: Nodes):
     global al
@@ -25,11 +30,18 @@ def use_algorithms(opt_al, cons: Connects, nodes: Nodes):
         al = range_search(start, end, cons)
     elif opt_al == 3:
         al = hill_climbing(start, end, cons, nodes.get_nodes())
+        print('[(node name, heuristic, weight), ...]')
     elif opt_al == 4:
-        al = branch_bound(start, end, cons)
-    elif opt_al == 5:
         al = first_better(start, end, cons, nodes.get_nodes())
         print('[(node name, heuristic, weight), ...]')
+    elif opt_al == 5:
+        al = branch_bound(start, end, cons)
+    elif opt_al == 6:
+        al = A_star(start, end, cons, nodes.get_nodes())
+        print('[(node name, heuristic, weight), ...]')
+    else:
+        print('restart')
+        exit(300)
 
     print('al:', al)
     print('end:', end)
@@ -44,6 +56,18 @@ def use_algorithms(opt_al, cons: Connects, nodes: Nodes):
 
         if len(al) == 3:
             print(f'it\'s total heuristic is: {al[2]}')
+
+        op = int(input('Plot solution graph? (0-no, 1-yes): '))
+        if op == 1:
+            i = 0
+            conn_sol = []
+            while (i + 1) < len(al[0]):
+                conn_sol.append((al[0][i][0], al[0][i+1][0], al[0][i][2]))
+                i += 1
+
+            # print(conn_sol)
+            p = Process(target=plot_graph, args=(conn_sol,), daemon=False)
+            p.start()
 
     else:
         print('No path found!')
