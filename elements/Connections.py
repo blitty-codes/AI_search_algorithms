@@ -7,6 +7,7 @@ class Connections:
     # source and target are not nodes because we just want the names
     # to them associated
     def new_connection(self, source, target, weight: float):
+        weight = round(weight, 2)
         self.conn.append((source, target, weight))
         self.srcs_to_targets.append((source, target))
 
