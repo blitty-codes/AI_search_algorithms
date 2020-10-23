@@ -1,10 +1,11 @@
 # Index
 1. [Information](#information)
-2. [Notes](#notes)
-3. [Type of Algorithms](#types-of-algorithms)
-4. [Todo](#todo)
-5. [Utility](#utility)
-6. [Biography](#biography)
+2. [Libraries](#libraries)
+3. [Notes](#notes)
+4. [Type of Algorithms](#types-of-algorithms)
+5. [Todo](#todo)
+6. [Utility](#utility)
+7. [Biography](#biography)
 
 # Information
 With this program you can create a random graph or
@@ -19,6 +20,9 @@ need **costs**.
 If you choose the **random graph**, it will have _**no reflexive**_
 nodes, also the **last node** is the **objective** to be searched,
 if you want to **change** this objective, **it will be asked**.
+
+# Libraries
+You need to install `networkx`, `matplotlib` and `Tkinter`
 
 # Notes
 Be careful with **cyclic graphs**, some algorithms will be on a **loop**. Ex._
